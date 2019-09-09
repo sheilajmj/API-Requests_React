@@ -32,6 +32,10 @@ class App extends Component {
       getUrl: 'https://www.googleapis.com/books/v1/volumes?q=',
       searchUrl: ''
     };
+  this.updateSearch = this.updateSearch.bind(this);
+  this.buildUrl = this.buildUrl.bind(this);
+  this.updateFilters = this.updateFilters.bind(this);
+
   }
 
  updateSearch = (event) => {
@@ -44,6 +48,7 @@ class App extends Component {
 
   buildUrl = (event) => {
     console.log ('buildUrl invoked')
+    console.log (this.state.filters)
     if (this.state.searchTerms === "" && this.state.filters === ""){
       this.setState({searchResults: 'Please input a search term or filter.'})
       console.log ('this is the first if:' + this.state.searchUrl)
@@ -63,6 +68,7 @@ class App extends Component {
     else {
       this.setState({searchResults: "Something else happened and I don't know what"})
     }  
+    console.log (this)
     console.log  ('here is what buildUrl made - it is the state.searchUrl:' +  this.state.searchUrl);
   };
 
@@ -71,7 +77,7 @@ class App extends Component {
   updateFilters(filters){
     console.log('updateFilters invoked')
     this.setState({filters: filters});
-
+    console.log(this.state)
     console.log ('these are the filters' + this.state.filters)      
     this.buildUrl();
 
@@ -112,8 +118,8 @@ class App extends Component {
           toolbar
           <Toolbar
           state= {this.state}
-          updateFilters= {this.updateFilters} 
-          updateSearch= {this.updateSearch}
+          updateFilters= {this.updateFilters.bind(this)}
+          updateSearch= {this.updateSearch.bind(this)}
           buildUrl= {this.buildUrl}/>
         </section>
 
