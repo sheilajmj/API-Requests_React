@@ -46,34 +46,34 @@ class App extends Component {
     console.log ('buildUrl invoked')
     if (this.state.searchTerms === "" && this.state.filters === ""){
       this.setState({searchResults: 'Please input a search term or filter.'})
+      console.log ('this is the first if:' + this.state.searchUrl)
     }
     else if (this.state.searchTerms === "" && this.state.filters.valueOf() > 0){
       this.setState({searchUrl: this.state.getUrl+this.state.filters+'&key=AIzaSyCeVAKwZAZsmxR2e2RupvIS1vMZgdBJRxM'})
+      console.log ('this is the first else if:' + this.state.searchUrl)
     }
     else if (this.state.searchTerms.valueOf() > 0 && this.state.filters.valueOf() > 0){
       this.setState({searchUrl: this.state.getUrl + this.state.searchTerms + '&' + this.state.filters + '&key=AIzaSyCeVAKwZAZsmxR2e2RupvIS1vMZgdBJRxM'})
+      console.log ('this is the second else if:' + this.state.searchUrl)
     }
     else if (this.state.searchTerms.valueOf() > 0 && this.state.filters === ""){
       this.setState({searchUrl: this.state.getUrl + this.state.searchTerms + '&key=AIzaSyCeVAKwZAZsmxR2e2RupvIS1vMZgdBJRxM'})
+      console.log ('this is the third else if:' + this.state.searchUrl)
     }
     else {
       this.setState({searchResults: "Something else happened and I don't know what"})
     }  
-    console.log  ('here is what buildUrl made - it is the state.searchUrl:',  this.state.searchUrl);
+    console.log  ('here is what buildUrl made - it is the state.searchUrl:' +  this.state.searchUrl);
   };
 
   
   
-  updateFilters = (filter) => {
+  updateFilters(filters){
     console.log('updateFilters invoked')
-    this.setState({filters: filter});
-
+    this.setState({filters: filters});
 
     console.log ('these are the filters', this.state.filters)      
     this.buildUrl();
-
-    //saleInfo.amount  -- format 11.99
-
 
   };  
 
@@ -112,7 +112,7 @@ class App extends Component {
           toolbar
           <Toolbar
           state= {this.state}
-          updateFilters= {this.updateFilters} 
+          updateFilters= {this.updateFilters(filters)} 
           updateSearch= {this.updateSearch}
           buildUrl= {this.buildUrl}/>
         </section>
