@@ -112,7 +112,7 @@ class App extends Component {
           toolbar
           <Toolbar
           state= {this.state}
-          updateFilters= {this.updateFilters(filters)} 
+          updateFilters= {this.updateFilters(filter)} 
           updateSearch= {this.updateSearch}
           buildUrl= {this.buildUrl}/>
         </section>
