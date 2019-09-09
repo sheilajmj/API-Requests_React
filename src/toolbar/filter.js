@@ -24,7 +24,8 @@ class Filter extends Component {
         filter = 'something weird happened.'
     }
     console.log(filter);
-    this.props.updateFilters(filter);
+    
+    // this.props.updateFilters(filter);
    }
 
 
