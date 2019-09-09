@@ -40,7 +40,9 @@ class Filter extends Component {
                     <option value= "printType=all">All</option>
                     <option value= "printType=books">Books</option>
                     <option value= "printType=magazines">Magazines</option>
-                </select>  
+                </select>
+         
+    
             </div>
 
         

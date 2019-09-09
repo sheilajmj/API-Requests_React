@@ -72,7 +72,7 @@ class App extends Component {
     console.log('updateFilters invoked')
     this.setState({filters: filters});
 
-    console.log ('these are the filters', this.state.filters)      
+    console.log ('these are the filters' + this.state.filters)      
     this.buildUrl();
 
   };  
@@ -112,7 +112,7 @@ class App extends Component {
           toolbar
           <Toolbar
           state= {this.state}
-          updateFilters= {this.updateFilters(filter)} 
+          updateFilters= {this.updateFilters} 
           updateSearch= {this.updateSearch}
           buildUrl= {this.buildUrl}/>
         </section>
