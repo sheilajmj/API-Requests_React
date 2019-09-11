@@ -20,11 +20,6 @@ class Filter extends Component {
     else if (value === "printType=magazines"){
         filter = '&printType=magazines'
     }
-    else {
-        filter = 'something weird happened.'
-    }
-    console.log(filter);
-
     this.props.updateFilters(filter);
    }
 
@@ -40,9 +35,9 @@ class Filter extends Component {
                     <option value= "printType=all">All</option>
                     <option value= "printType=books">Books</option>
                     <option value= "printType=magazines">Magazines</option>
-                </select>
-         
-    
+                </select>  
+                <button  type="button" onClick={this.props.buildUrl}>
+                Search</button>  
             </div>
 
         

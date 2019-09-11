@@ -13,9 +13,7 @@ class Search extends Component {
                     placeholder="Search Terms" 
                     defaultValue={this.props.state.searchTerms}
                     onChange = {this.props.updateSearch.bind(this)}>           
-                </input> 
-                <button  type="button" onClick={this.props.buildUrl}>
-                Search</button>            
+                </input>         
             </div>
     );
   }

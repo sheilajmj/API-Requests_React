@@ -13,6 +13,7 @@ class Toolbar extends Component {
             updateSearch = {this.props.updateSearch}
             buildUrl = {this.props.buildUrl}/>
             <Filter 
+            buildUrl = {this.props.buildUrl}
             updateFilters = {this.props.updateFilters} />
         </div>    
     );

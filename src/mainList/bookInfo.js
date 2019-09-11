@@ -19,7 +19,7 @@ class BookInfo extends Component {
         return (
             <section className= 'bookInfo' id= 'array spot - author last name'>
                 <div>
-                    <div><h2>Title:</h2></div>
+                    <div><h2>Title</h2></div>
                     <div><h3>Author: </h3> </div>
                     <div><p>Summary: </p> </div>
                     {/* <button onClick= change the value below to true or false>+</button> */}
