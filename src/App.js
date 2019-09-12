@@ -26,7 +26,7 @@ class App extends Component {
     this.state = {
       searchTerms: "",
       searchResults: [],  
-      resultsItems:{}, 
+      resultsItems:[], 
       bookList: [], 
       filters: "",
       showExpanded: false,
@@ -58,18 +58,20 @@ class App extends Component {
   };
  
 
-  resultsItems(){
-    this.state.searchResults.items.map((volume) => {
-       this.setState({resultsItems: [volume.volumeInfo.title = {
-         title: volume.volumeInfo.title,
-         author: volume.volumeInfo.authors,
-         description: volume.volumeInfo.description,
-         publisher: volume.volumeInfo.publisher,
-         publishedDate: volume.volumeInfo.publishedDate,
-         imageLinks: volume.volumeInfo.imageLinks,
-       }]})
-   })};
-   
+    resultsItems(){
+      const items = this.state.searchResults.items.map((volume) => {
+         return {
+           title: volume.volumeInfo.title,
+           author: volume.volumeInfo.authors,
+           description: volume.volumeInfo.description,
+           publisher: volume.volumeInfo.publisher,
+           publishedDate: volume.volumeInfo.publishedDate,
+           imageLinks: volume.volumeInfo.imageLinks,
+         };
+      });
+      this.setState({ resultsItems: items });
+  }
+      
   getSearchResults() {
       fetch(this.state.searchUrl)
         .then(results => {
@@ -90,18 +92,15 @@ class App extends Component {
           .then (results => {
             return this.resultsItems();
           })
-  }    
-
-
-
-
-
+  };    
       
-        
+  
 
 
 
   render() {
+  
+  
     return (
       <div className="App">
         <h1>Book Search</h1>
@@ -117,7 +116,7 @@ class App extends Component {
         <section className="mainList">
           mainlist
           <MainList 
-          state= {this.state}/>
+          bookList= {this.state.resultsItems}/>
         </section>
 
       </div>

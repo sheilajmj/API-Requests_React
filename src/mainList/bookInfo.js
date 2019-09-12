@@ -13,25 +13,24 @@ import './bookInfo.css';
 
 class BookInfo extends Component {
     
-    render() {
-        // const searchResults= this.props.searchResults
+   
 
+    render() {
+        var bookImageUrl = this.props.book.imageLinks.thumbnail
+        
+    
         return (
             <section className= 'bookInfo' id= 'array spot - author last name'>
                 <div>
-                    <div><h2>Title</h2></div>
-                    <div><h3>Author: </h3> </div>
-                    <div><p>Summary: </p> </div>
-                    {/* <button onClick= change the value below to true or false>+</button> */}
+                    <div><img src={bookImageUrl} alt="Book" /></div>
+                    <div>
+                        <h2>Title: {this.props.book.title}</h2>
+                        <h3>Author: {this.props.book.author}</h3>
+                        <h4>Publisher: {this.props.book.publisher} {this.props.book.publishedYear}</h4>
+                        <p>Summary: {this.props.book.description}</p>   
+                    </div>
                 </div>
-                <div className= 'expandedBookInfo' value="false">
-                    {/* if the value is false - hide this div */}
-                    <div>Review:</div>    
-                    <div>Contents:</div>
-                    <div>Rating:</div>
-                    <div>Publisher: </div>
-                    <div>ISBN:</div>
-                </div>
+           
             </section>
     );
   }
